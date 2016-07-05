@@ -4,3 +4,27 @@
   <%= file_field_tag :file, :accept => 'text/csv'%><br/><br/>
   <%= submit_tag "Import" %>
 <% end %>
+
+<br/>
+<% if @shippings.count > 0 %>
+<table>
+  <tr>
+    <th> First Name </th>
+    <th> Last Name </th>
+    <th> Address </th>
+    <th> City </th>
+    <th> State </th>
+    <th> Zip Code </th>
+  </tr>
+<% end %>
+  <% @shippings.each do |shipping|%>
+    <tr>
+      <td><%= shipping.first_name%></td>
+      <td><%= shipping.last_name%></td>
+      <td><%= shipping.address%></td>
+      <td><%= shipping.city%></td>
+      <td><%= shipping.state%></td>
+      <td><%= shipping.zip_code%></td>
+    </tr>
+    <%end%>
+</table>
