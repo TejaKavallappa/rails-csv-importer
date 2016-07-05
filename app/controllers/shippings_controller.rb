@@ -8,8 +8,7 @@ class ShippingsController < ApplicationController
     @shipping_import = ShippingsImport.new(params[:file])
 
     if @shipping_import.save
-      flash[:notice] =  ["Shipping address imported"]
-      redirect_to root_url
+      redirect_to root_url, notice: "Shipping addresses imported"
     else
       flash[:errors] = @shipping_import.errors.full_messages
       redirect_to root_url
