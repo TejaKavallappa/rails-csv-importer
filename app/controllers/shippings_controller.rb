@@ -1,7 +1,7 @@
 class ShippingsController < ApplicationController
 
   def index
-    @shippings = Shipping.all
+    @shippings = Shipping.order(:created_at).page(params[:page]).per(10)
   end
 
   def import
