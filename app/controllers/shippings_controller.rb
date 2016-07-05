@@ -1,7 +1,7 @@
 class ShippingsController < ApplicationController
 
   def index
-    @shippings = Shipping.order(:created_at).page(params[:page]).per(10)
+    @shippings = Shipping.order(sort_column).page(params[:page]).per(10)
   end
 
   def import
@@ -14,6 +14,12 @@ class ShippingsController < ApplicationController
       redirect_to root_url
     end
 
+  end
+
+  private
+
+  def sort_column
+    Shipping.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
   end
 
 end
