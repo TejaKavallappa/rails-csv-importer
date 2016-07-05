@@ -22,8 +22,10 @@ class ShippingsImport < ActiveRecord::Base
 
   def add_shipping_errors(shipping, index)
     shipping.errors.full_messages.each do |message|
-    errors.add :base, "Row #{index}: #{message}"
+      next if message == "Last name has already been taken"
+      errors.add :base, "Row #{index}: #{message}"
     end
+    
   end
 
   def imported_shippings
