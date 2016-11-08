@@ -1,4 +1,4 @@
-# CSV importer importer using Ruby on Rails
+# CSV importer using Ruby on Rails
 [Heroku live link][rails-csv-importer]<br />
 Web interface that accepts CSV file uploads, stores data in a relational database, and displays the data from the database.
 [rails-csv-importer]: https://rails-csv-importer.herokuapp.com
